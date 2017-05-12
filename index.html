@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="js/component.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Project</title>
+
+  <style>
+    #map {
+      height: 100%;
+    }
+
+    .place-input {
+      margin-top: 10px;
+      margin-left: 10px;
+      border: 1px solid transparent;
+      border-radius: 2px 0 0 2px;
+      box-sizing: border-box;
+      height: 32px;
+      outline: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      background-color: #fff;
+      font-family: Source Sans Pro, Roboto, Open Sans, sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      padding: 0 11px 0 13px;
+      text-overflow: ellipsis;
+      width: 400px;
+    }
+
+    .place-input:focus {
+      border-color: #4d90fe;
+    }
+
+    .place-output {
+      margin-top: 15px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="mp-pusher" id="mp-pusher">
+
+  <button id="trigger" class="menu-trigger"></button>
+
+  <nav id="mp-menu" class="mp-menu">
+    <div class="mp-level">
+      <h2 class="icon icon-world">Факультет</h2>
+      <ul>
+        <li>
+          <a href="#">Факультет математики и информатики</a>
+
+          <div class="mp-level">
+            <h2>Факультет математики и информатики</h2>
+            <ul>
+              <li>
+                <a href="#">курс 1</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-КБ-161</a></li>
+                    <li><a href="#">СДП-МАТ(НПД)-161</a></li>
+                    <li><a href="#">СДП-ПМ-161</a></li>
+                    <li><a href="#">СДП-ПМ-162</a></li>
+                    <li><a href="#">СДП-ПОИТ-161</a></li>
+                    <li><a href="#">СДП-ПОИТ-162</a></li>
+                    <li><a href="#">СДП-ПОИТ-163</a></li>
+                    <li><a href="#">СДП-УИР-161</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#">курс 2</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-КБ-151</a></li>
+                    <li><a href="#">СДП-МАТ(НПД)-151</a></li>
+                    <li><a href="#">СДП-ПМ-151</a></li>
+                    <li><a href="#">СДП-ПМ-152</a></li>
+                    <li><a href="#">СДП-ПОИТ-151</a></li>
+                    <li><a href="#">СДП-ПОИТ-152</a></li>
+                    <li><a href="#">СДП-ПОИТ-153</a></li>
+                    <li><a href="#">СДП-УИР-151</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#">курс 3</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-ИНФ-141</a></li>
+                    <li><a href="#">СДП-КБ-141</a></li>
+                    <li><a href="#">СДП-МАТ(НПД)-141</a></li>
+                    <li><a href="#">СДП-ПМ-141</a></li>
+                    <li><a href="#">СДП-ПОИТ-141</a></li>
+                    <li><a href="#">СДП-ПОИТ-142</a></li>
+                    <li><a href="#">СДП-ПОИТ-143</a></li>
+                    <li><a href="#">СДП-УИР-141</a></li>
+                    <li><a href="#">СДП-УИР-142</a></li>
+                    <li><a href="#">СДП-ЭК-141</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="#">Военный факультет</a>
+
+          <div class="mp-level">
+            <h2>Военный факультет</h2>
+            <ul>
+              <li>
+                <a href="#">курс 1</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                  <li><a href="#">СДП-ТОВ-161</a></li>
+                  <li><a href="#">СДП-ТОВ-162</a></li>
+                  <li><a href="#">СДП-ФПВ-161</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#">курс 2</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-ТОВ-151</a></li>
+                    <li><a href="#">СДП-ФПВ-151</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#">курс 3</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-ТОВ-151</a></li>
+                    <li><a href="#">СДП-ФПВ-151</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="#">Факультет истории, коммуникации и туризма</a>
+
+          <div class="mp-level">
+            <h2>Факультет истории, коммуникации и туризма</h2>
+            <ul>
+              <li>
+                <a href="#">курс 1</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-ЖУР-161</a></li>
+                    <li><a href="#">СДП-ИК-161</a></li>
+                    <li><a href="#">СДП-ИСТ-161</a></li>
+                    <li><a href="#">СДП-ЛОМК-161</a></li>
+                    <li><a href="#">СДП-ЛОМК-162</a></li>
+                    <li><a href="#">СДП-ЛОМК-163</a></li>
+                    <li><a href="#">СДП-ЛОМК-164</a></li>
+                    <li><a href="#">СДП-СОЦ-161</a></li>
+                    <li><a href="#">СДП-ТГ-161</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#">курс 2</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-ЖУР-151</a></li>
+                    <li><a href="#">СДП-ИК-151</a></li>
+                    <li><a href="#">СДП-ИСТ-151</a></li>
+                    <li><a href="#">СДП-ЛОМК-151</a></li>
+                    <li><a href="#">СДП-ЛОМК-152</a></li>
+                    <li><a href="#">СДП-ЛОМК-153</a></li>
+                    <li><a href="#">СДП-ЛОМК-154</a></li>
+                    <li><a href="#">СДП-СОЦ-151</a></li>
+                    <li><a href="#">СДП-ТГ-151</a></li>
+                    <li><a href="#">СДП-ТГ-152</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#">курс 3</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-ЖУР-141</a></li>
+                    <li><a href="#">СДП-ИК-141</a></li>
+                    <li><a href="#">СДП-ИСТ-141</a></li>
+                    <li><a href="#">СДП-ЛОМК-141</a></li>
+                    <li><a href="#">СДП-ЛОМК-142</a></li>
+                    <li><a href="#">СДП-ЛОМК-143</a></li>
+                    <li><a href="#">СДП-ЛОМК-144</a></li>
+                    <li><a href="#">СДП-СОЦ-141</a></li>
+                    <li><a href="#">СДП-ТГ-141</a></li>
+                    <li><a href="#">СДП-ТГ-142</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+
+          <a href="#">Инженерно-строительный факультет</a>
+
+          <div class="mp-level">
+            <h2>Инженерно-строительный факультет</h2>
+            <ul>
+              <li>
+                <a href="#">курс 1</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-ПГС-161</a></li>
+                    <li><a href="#">СДП-ПГС-162</a></li>
+                    <li><a href="#">СДП-ПГС-163</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#">курс 2</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-ПГС-151</a></li>
+                    <li><a href="#">СДП-ПГС-152</a></li>
+                    <li><a href="#">СДП-ПГС-153</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#">курс 3</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-ПГС-141</a></li>
+                    <li><a href="#">СДП-ПГС-142</a></li>
+                    <li><a href="#">СДП-ПГС-143</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="#">Факультет биологии и экологии</a>
+
+          <div class="mp-level">
+            <h2>Факультет биологии и экологии</h2>
+            <ul>
+              <li>
+                <a href="#">курс 1</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                  <li><a href="#">СДП-БИО(Б)-162</a></li>
+                  <li><a href="#">СДП-БИО(НПД)-163</a></li>
+                  <li><a href="#">СДП-БЭ-161</a></li>
+                  <li><a href="#">СДП-ППООП-164</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#">курс 2</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-БИО(Б)-152</a></li>
+                    <li><a href="#">СДП-БИО(НПД)-153</a></li>
+                    <li><a href="#">СДП-БЭ-151</a></li>
+                    <li><a href="#">СДП-ППООП-154</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#">курс 3</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-БИО(Б)-142</a></li>
+                    <li><a href="#">СДП-БИО(Б)-143</a></li>
+                    <li><a href="#">СДП-БИО(НПД)-144</a></li>
+                    <li><a href="#">СДП-БЭ-141</a></li>
+                    <li><a href="#">СДП-ППООП-145</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="#">Педагогический факультет</a>
+
+          <div class="mp-level">
+            <h2>Педагогический факультет</h2>
+            <ul>
+              <li>
+                <a href="#">курс 1</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                  <li><a href="#">СДП-ДО-161</a></li>
+                  <li><a href="#">СДП-Л-163</a></li>
+                  <li><a href="#">СДП-НО-162</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#">курс 2</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-ДО-151</a></li>
+                    <li><a href="#">СДП-Л-153</a></li>
+                    <li><a href="#">СДП-НО-152</a></li>
+                    <li><a href="#">СДП-СР(СПСД)-154</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#">курс 3</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-ДО-141</a></li>
+                    <li><a href="#">СДП-Л-143</a></li>
+                    <li><a href="#">СДП-НО-142</a></li>
+                    <li><a href="#">СДП-СР(СПСД)-144</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="#">Факультет инновационных технологий машиностроения</a>
+
+          <div class="mp-level">
+            <h2>Факультет инновационных технологий машиностроения</h2>
+            <ul>
+              <li>
+                <a href="#">курс 1</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                  <li><a href="#">СДП-ОТВПОМ-161</a></li>
+                  <li><a href="#">СДП-ТЛ-161</a></li>
+                  <li><a href="#">СДП-ТЭА-161</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#">курс 2</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-ОТВПОМ-151</a></li>
+                    <li><a href="#">СДП-ТЛ-151</a></li>
+                    <li><a href="#">СДП-ТЭА-151</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#">курс 3</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-ОТВПОМ-141</a></li>
+                    <li><a href="#">СДП-ТЛ-141</a></li>
+                    <li><a href="#">СДП-ТЭА-141</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+          </li>
+          <li>
+
+          <a href="#">Факультет искусств и дизайна</a>
+
+          <div class="mp-level">
+            <h2>Факультет искусств и дизайна</h2>
+            <ul>
+              <li>
+                <a href="#">курс 1</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-ДИЗ(ГР)-161</a></li>
+                    <li><a href="#">СДП-ДИЗ(КТ)-162</a></li>
+                    <li><a href="#">СДП-ИИИКГ-163</a></li>
+                    <li><a href="#">СДС-НТ(ИМ)-164</a></li>
+                    <li><a href="#">СДС-НТ(ХМ)-165</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#">курс 2</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-ДИЗ(ГР)-151</a></li>
+                    <li><a href="#">СДП-ДИЗ(КТ)-152</a></li>
+                    <li><a href="#">СДП-ИИИКГ-153</a></li>
+                    <li><a href="#">СДС-НТ(ИМ)-154</a></li>
+                    <li><a href="#">СДС-НТ(ХМ)-155</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#">курс 3</a>
+                <div class="mp-level">
+                  <h2>курс 1</h2>
+                  <ul>
+                    <li><a href="#">СДП-ДИЗ(ГР)-141</a></li>
+                    <li><a href="#">СДП-ДИЗ(КТ)-142</a></li>
+                    <li><a href="#">СДП-ИИИКГ-143</a></li>
+                    <li><a href="#">СДС-НТ(ИМ)-144</a></li>
+                    <li><a href="#">СДС-НТ(ХМ)-145</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <input id="place-input" class="place-input" type="text" placeholder="введите свой адрес">
+  <p id="place-output" class="place-output"></p>
+
+  <div class="cd-schedule loading">
+    <div class="timeline">
+      <ul>
+        <li><span>08:30</span></li>
+        <li><span>09:00</span></li>
+        <li><span>09:30</span></li>
+        <li><span>10:00</span></li>
+        <li><span>10:30</span></li>
+        <li><span>11:00</span></li>
+        <li><span>11:30</span></li>
+        <li><span>12:00</span></li>
+        <li><span>12:30</span></li>
+        <li><span>13:00</span></li>
+        <li><span>13:30</span></li>
+        <li><span>14:00</span></li>
+        <li><span>14:30</span></li>
+        <li><span>15:00</span></li>
+        <li><span>15:30</span></li>
+        <li><span>16:00</span></li>
+        <li><span>16:30</span></li>
+        <li><span>17:00</span></li>
+        <li><span>17:30</span></li>
+        <li><span>18:00</span></li>
+        <li><span>18:30</span></li>
+        <li><span>19:00</span></li>
+        <li><span>19:30</span></li>
+        <li><span>20:00</span></li>
+        <li><span>20:30</span></li>
+        <li><span>21:00</span></li>
+        <li><span>21:30</span></li>
+      </ul>
+    </div> <!-- .timeline -->
+
+    <div class="events">
+      <ul>
+        <li class="events-group">
+          <div class="top-info"><span>Monday</span></div>
+
+          <ul>
+            <li class="single-event" data-start="10:05" data-end="11:25" data-content="event-one"
+                data-event="event-1" data-university="53.684801, 23.840160">
+              <a href=""><em class="event-name">лек. Язык програм. R (213)</em></a>
+            </li>
+
+            <li class="single-event" data-start="11:40" data-end="13:00" data-content="event-four"
+                data-event="event-4" data-university="53.684801, 23.840160">
+              <a href=""><em class="event-name">сем.зан. Философия (408)</em></a>
+            </li>
+
+            <li class="single-event" data-start="13:30" data-end="14:50" data-content="event-one"
+                data-event="event-1" data-university="53.684716, 23.833884">
+              <a href=""><em class="event-name">лаб. Сов. тех. раз. web-при.(Горького,1/3( ПВТ)) </em></a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="events-group">
+          <div class="top-info"><span>Tuesday</span></div>
+
+          <ul>
+            <li class="single-event" data-start="11:40" data-end="13:00" data-content="event-three"
+                data-event="event-3" data-university="53.684801, 23.840160">
+              <a href=""><em class="event-name">лаб. (УСР) Уравнения математической физики</em></a>
+            </li>
+
+            <li class="single-event" data-start="13:30" data-end="14:50" data-content="event-three"
+                data-event="event-3" data-university="53.684801, 23.840160">
+              <a href=""><em class="event-name">лаб. Уравнения математической физики (122)</em></a>
+            </li>
+
+            <li class="single-event" data-start="15:05" data-end="16:25" data-content="event-three"
+                data-event="event-3" data-university="53.684801, 23.840160">
+              <a href=""><em class="event-name">лаб. Уравнения математической физики (122)</em></a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="events-group">
+          <div class="top-info"><span>Wednesday</span></div>
+
+          <ul>
+            <li class="single-event" data-start="13:30" data-end="14:50" data-content="event-one"
+                data-event="event-1" data-university="53.684801, 23.840160">
+              <a href=""><em class="event-name">лек. Численные методы мат. физики (501)</em></a>
+            </li>
+
+            <li class="single-event" data-start="15:05" data-end="16:25" data-content="event-one"
+                data-event="event-1" data-university="53.684801, 23.840160">
+              <a href=""><em class="event-name">лек. Численные методы мат. физики (501)</em></a>
+            </li>
+
+            <li class="single-event" data-start="16:40" data-end="18:00" data-content="event-one"
+                data-event="event-1" data-university="53.684801, 23.840160">
+              <a href=""><em class="event-name">лаб. Язык програм. R (211)</em></a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="events-group">
+          <div class="top-info"><span>Thursday</span></div>
+
+          <ul>
+
+          </ul>
+        </li>
+
+        <li class="events-group">
+          <div class="top-info"><span>Friday</span></div>
+
+          <ul>
+            <li class="single-event" data-start="08:30" data-end="09:50" data-content="event-three"
+                data-event="event-3" data-university="53.684801, 23.840160">
+              <a href=""><em class="event-name">(факул (англ)) практ.зан. Иностранный язык (220)</em></a>
+            </li>
+
+            <li class="single-event" data-start="13:30" data-end="14:50" data-content="event-four"
+                data-event="event-4" data-university="53.684801, 23.840160">
+              <a href=""><em class="event-name">сем.зан. Философия (408)</em></a>
+            </li>
+          </ul>
+        </li>
+        <li class="events-group">
+          <div class="top-info"><span>Saturday</span></div>
+
+          <ul>
+            <li class="single-event" data-start="11:40" data-end="13:00" data-content="event-two"
+                data-event="event-2" data-university="53.684801, 23.840160">
+              <a href=""><em class="event-name">лек. Исследование операций (225)</em></a>
+            </li>
+
+            <li class="single-event" data-start="13:30" data-end="14:50" data-content="event-two"
+                data-event="event-2" data-university="53.684801, 23.840160">
+              <a href=""><em class="event-name">лек. Исследование операций (225)</em></a>
+            </li>
+
+            <li class="single-event" data-start="15:05" data-end="16:25" data-content="event-one"
+                data-event="event-1" data-university="53.684801, 23.840160">
+              <a href=""><em class="event-name">лек. Теоретическая механика (122)</em></a>
+            </li>
+
+            <li class="single-event" data-start="16:40" data-end="18:00" data-content="event-one"
+                data-event="event-1" data-university="53.684801, 23.840160">
+              <a href=""><em class="event-name">практ.зан. Теоретическая механика (122)</em></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="event-modal">
+      <header class="header">
+        <div class="content">
+          <span class="event-date"></span>
+          <h3 class="event-name"></h3>
+          <p class="event-text"><span id="remaining-time"></span></p>
+          <p class="event-text">Расстояние: <span id="distance"></span></p>
+          <p class="event-text">Время в пути: <span id="duration"></span></p>
+        </div>
+
+        <div class="header-bg"></div>
+      </header>
+
+      <div class="body">
+        <div class="event-info"></div>
+        <div class="body-bg"></div>
+      </div>
+
+      <a href="" class="close">Close</a>
+    </div>
+
+    <div class="cover-layer"></div>
+  </div>
+</div><!-- /pusher -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>if (!window.jQuery) document.write('<script src="js/jquery.min.js"><\/script>');</script>
+<script src="js/mlpushmenu.js"></script>
+<script src="js/moment-with-locales.min.js"></script>
+<script src="js/main.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4Evx82-KoarUlnkMY-IEWIYh2ZsEm8EA&libraries=places&callback=initAutocomplete"></script>
+</body>
+</html>
